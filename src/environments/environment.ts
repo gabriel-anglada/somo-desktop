@@ -4,5 +4,14 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDjiYPCxcP0X-BYVHtwbuuzZGTswAtsC3I',
+    authDomain: 'gabrielanglada-172e0.firebaseapp.com>',
+    databaseURL: 'https://gabrielanglada-172e0.firebaseio.com',
+    storageBucket: "gabrielanglada-172e0.appspot.com"
+  },
+  nicecast: {
+    streamingURL: 'http://192.168.1.134:8000/listen'
+  }
 };
