@@ -1,7 +1,27 @@
-<md-sidenav-container>
-  <md-sidenav mode="side" opened="true">
-    MENU
-  </md-sidenav>
+<div class="container-fluid dashboard-container">
 
-  <router-outlet></router-outlet>
-</md-sidenav-container>
+  <nav class="row navbar navbar-toggleable-md navbar-light bg-primary">
+    <a class="navbar-brand">LOGO</a>
+  </nav>
+
+  <div class="row main-container">
+    <div class="col-2 menu-content bg-faded">
+      <div class="row">
+        <h6 class="dropdown-header">{{ 'page.dashboard.menu.header.application' | translate }}</h6>
+        <a class="dropdown-item" [routerLink]="['/dashboard/home']" [routerLinkActive]="'active'">{{ 'page.dashboard.menu.label.dashboard' | translate }}</a>
+        <a class="dropdown-item" [routerLink]="['/dashboard/users']" [routerLinkActive]="'active'">{{ 'page.dashboard.menu.label.users' | translate }}</a>
+        <a class="dropdown-item" [routerLink]="['/dashboard/stars']" [routerLinkActive]="'active'">{{ 'page.dashboard.menu.label.stars' | translate }}</a>
+        <h6 class="dropdown-header">{{ 'page.dashboard.menu.header.my_data' | translate }}</h6>
+        <a class="dropdown-item" [routerLink]="['/dashboard/profile']" [routerLinkActive]="'active'">{{ 'page.dashboard.menu.label.my_profile' | translate }}</a>
+        <a class="dropdown-item" [routerLink]="['/dashboard/organization']" [routerLinkActive]="'active'">{{ 'page.dashboard.menu.label.my_organization' | translate }}</a>
+        <h6 class="dropdown-header">{{ 'page.dashboard.menu.header.help' | translate }}</h6>
+        <a class="dropdown-item" (click)="onContactClick()">{{ 'page.dashboard.menu.label.contact' | translate }}</a>
+        <a class="dropdown-item" (click)="onAboutClick()">{{ 'page.dashboard.menu.label.about' | translate }}</a>
+      </div>
+
+    </div>
+    <div class="col main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

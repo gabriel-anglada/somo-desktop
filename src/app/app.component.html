@@ -1,8 +1,8 @@
-<h1>{{ title }}</h1>
-
-<nav>
-  <a [routerLink]="['/login']" [routerLinkActive]="'active'">Route 1</a>
-  <a [routerLink]="['/dashboard']" [routerLinkActive]="'active'">Route 2</a>
-</nav>
+<!--
+@TODO move this to a directive
+-->
+<p *ngFor="let alert of alerts" class="alert-container padding-add">
+  <ngb-alert [type]="alert.type" [dismissible]="false">{{ alert.message | translate:alert.messageParams }}</ngb-alert>
+</p>
 
 <router-outlet></router-outlet>

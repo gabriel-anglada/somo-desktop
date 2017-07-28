@@ -6,12 +6,9 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDjiYPCxcP0X-BYVHtwbuuzZGTswAtsC3I',
-    authDomain: 'gabrielanglada-172e0.firebaseapp.com>',
-    databaseURL: 'https://gabrielanglada-172e0.firebaseio.com',
-    storageBucket: "gabrielanglada-172e0.appspot.com"
-  },
-  nicecast: {
-    streamingURL: 'http://192.168.1.134:8000/listen'
+    apiKey: 'AIzaSyBgutwqoNXKQrppQovWtssZdLrvCQspmdM',
+    authDomain: 'somo-dev.firebaseapp.com>',
+    databaseURL: 'https://somo-dev.firebaseio.com',
+    storageBucket: "somo-dev.appspot.com"
   }
 };

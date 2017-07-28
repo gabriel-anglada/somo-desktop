@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
+  /**
+   * @TODO: replace with production params
+   */
   firebase: {
-    apiKey: 'AIzaSyDjiYPCxcP0X-BYVHtwbuuzZGTswAtsC3I',
-    authDomain: 'gabrielanglada-172e0.firebaseapp.com>',
-    databaseURL: 'https://gabrielanglada-172e0.firebaseio.com',
-    storageBucket: "gabrielanglada-172e0.appspot.com"
-  },
-  nicecast: {
-    streamingURL: 'http://95.23.56.167:8000/listen'
+    apiKey: 'AIzaSyBgutwqoNXKQrppQovWtssZdLrvCQspmdM',
+    authDomain: 'somo-dev.firebaseapp.com>',
+    databaseURL: 'https://somo-dev.firebaseio.com',
+    storageBucket: "somo-dev.appspot.com"
   }
 };

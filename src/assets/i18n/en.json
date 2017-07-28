@@ -1,0 +1,57 @@
+{
+	"alert": {
+		"success": {
+			"user_deleted_%userId%": ""
+		}
+	},
+	"modal": {
+		"button": {
+			"close": "",
+			"ok": ""
+		}
+	},
+	"page": {
+		"dashboard": {
+			"menu": {
+				"header": {
+					"application": "Application",
+					"help": "Contact and Help",
+					"my_data": "Me"
+				},
+				"label": {
+					"about": "About us",
+					"contact": "Contact us",
+					"dashboard": "Dashboard",
+					"my_organization": "My Organization",
+					"my_profile": "My Profile",
+					"stars": "Stars",
+					"users": "Users"
+				}
+			}
+		},
+		"stars": {
+			"table": {
+				"header": {
+					"actions": "",
+					"id": ""
+				}
+			},
+			"title": ""
+		},
+		"users": {
+			"delete": {
+				"confirm": {
+					"text": "",
+					"title": ""
+				}
+			},
+			"table": {
+				"header": {
+					"actions": "",
+					"id": ""
+				}
+			},
+			"title": ""
+		}
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"alert": {
+		"success": {
+			"user_deleted_%userId%": "El usuario {{ userId }} se ha eliminado correctamente"
+		}
+	},
+	"modal": {
+		"button": {
+			"close": "Cerrar",
+			"ok": "Aceptar"
+		}
+	},
+	"page": {
+		"dashboard": {
+			"menu": {
+				"header": {
+					"application": "Aplicación",
+					"help": "Contacto y Ayuda",
+					"my_data": "Mis datos"
+				},
+				"label": {
+					"about": "Sobre nosotros",
+					"contact": "Contacta",
+					"dashboard": "Dashboard",
+					"my_organization": "Mi organización",
+					"my_profile": "Mi perfil",
+					"stars": "Estrellas",
+					"users": "Usuarios"
+				}
+			}
+		},
+		"stars": {
+			"table": {
+				"header": {
+					"actions": "Acciones",
+					"id": "ID"
+				}
+			},
+			"title": "Estrellas"
+		},
+		"users": {
+			"delete": {
+				"confirm": {
+					"text": "¿Estás seguro de eliminar a este usuario?",
+					"title": "Eliminar usuario"
+				}
+			},
+			"table": {
+				"header": {
+					"actions": "Acciones",
+					"id": "ID"
+				}
+			},
+			"title": "Usuarios"
+		}
+	}
+}
