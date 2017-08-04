@@ -1,0 +1,23 @@
+<clr-modal [(clrModalOpen)]="opened" [clrModalClosable]="true">
+    <h3 class="modal-title">Form Modal</h3>
+
+    <div class="modal-body">
+      <form id="form" class="form" [formGroup]="form" (ngSubmit)="onSubmit()" [hidden]="submitted">
+        Form Implementation
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn outline" (click)="close()">
+        Close
+      </button>
+
+      <button class="btn btn-primary"
+              form="form"
+              type="submit"
+              [disabled]="form.invalid">
+        Submit
+      </button>
+    </div>
+</clr-modal>
+

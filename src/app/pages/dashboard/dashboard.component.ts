@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {AboutComponent} from "../about/about.component";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ContactComponent} from "../contact/contact.component";
 
 @Component({
@@ -9,13 +8,17 @@ import {ContactComponent} from "../contact/contact.component";
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent {
-  constructor(private modalService: NgbModal) {}
 
-  onAboutClick(){
-    this.modalService.open(AboutComponent);
-  }
+  @ViewChild('aboutModal') aboutModal:AboutComponent;
+  @ViewChild('contactModal') contactModal:ContactComponent;
 
-  onContactClick(){
-    this.modalService.open(ContactComponent);
-  }
+  constructor() {}
+
+   onAboutClick(){
+     this.aboutModal.open();
+   }
+
+   onContactClick(){
+     this.contactModal.open();
+   }
 }

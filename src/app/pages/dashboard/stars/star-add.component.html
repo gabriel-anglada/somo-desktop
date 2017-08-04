@@ -1,0 +1,146 @@
+<clr-modal [(clrModalOpen)]="opened" [clrModalClosable]="true">
+  <h3 class="modal-title">{{ 'modal.stars.add.title' | translate }}</h3>
+
+  <div class="modal-body">
+    <form id="form" class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <section class="form-block">
+        <div class="form-group">
+          <label for="identifier">{{ 'modal.stars.add.label.identifier' | translate }}</label>
+
+          <label for="identifier"
+                 aria-haspopup="true"
+                 role="tooltip"
+                 class="tooltip tooltip-validation tooltip-sm"
+                 [class.invalid]="form.get('identifier').invalid
+                    && (form.get('identifier').dirty || form.get('identifier').touched)">
+            <input id="identifier" type="text"
+                   formControlName="identifier">
+
+            <span class="tooltip-content">
+                {{ 'modal.stars.add.validation_error.identifier_required' | translate }}
+              </span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="name">{{ 'modal.stars.add.label.name' | translate }}</label>
+
+          <label for="name"
+                 aria-haspopup="true"
+                 role="tooltip"
+                 class="tooltip tooltip-validation tooltip-sm"
+                 [class.invalid]="form.get('name').invalid
+                    && (form.get('name').dirty || form.get('name').touched)">
+            <input id="name" type="text"
+                   formControlName="name">
+
+            <span class="tooltip-content">
+                {{ 'modal.stars.add.validation_error.name_required' | translate }}
+              </span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="description">{{ 'modal.stars.add.label.description' | translate }}</label>
+
+          <label for="description">
+              <textarea id="description" type="text"
+                        rows="5"
+                        formControlName="description"></textarea>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="frequency">{{ 'modal.stars.add.label.frequency' | translate }}</label>
+
+          <label for="frequency"
+                 aria-haspopup="true"
+                 role="tooltip"
+                 class="tooltip tooltip-validation tooltip-sm"
+                 [class.invalid]="form.get('frequency').invalid
+                      && (form.get('frequency').dirty ||
+                      form.get('frequency').touched)">
+            <div class="select">
+              <select id="frequency"
+                      name="frequency"
+                      formControlName="frequency">
+                <option value="Default">{{ 'modal.stars.add.placeholder.frequency' | translate }}</option>
+                <option *ngFor="let frequency of frequencies" [value]="frequency">{{ ('star.recursion.' + frequency) |
+                  translate }}
+                </option>
+              </select>
+            </div>
+
+            <span class="tooltip-content">
+                    {{ 'modal.stars.add.validation_error.frequency_required' | translate }}
+                </span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="num_peaks">{{ 'modal.stars.add.label.num_peaks' | translate }}</label>
+
+          <label for="num_peaks"
+                 aria-haspopup="true"
+                 role="tooltip"
+                 class="tooltip tooltip-validation tooltip-sm"
+                 [class.invalid]="form.get('num_peaks').invalid
+                      && (form.get('num_peaks').dirty ||
+                      form.get('num_peaks').touched)">
+            <div class="select">
+              <select id="num_peaks"
+                      name="num_peaks"
+                      formControlName="num_peaks">
+                <option value="Default">{{ 'modal.stars.add.placeholder.num_peaks' | translate }}</option>
+                <option *ngFor="let num_peak of numPeaks" [value]="num_peak">{{num_peak}}</option>
+              </select>
+            </div>
+
+            <span class="tooltip-content">
+                    {{ 'modal.stars.add.validation_error.num_peaks_required' | translate }}
+                </span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="num_answers">{{ 'modal.stars.add.label.num_answers' | translate }}</label>
+
+          <label for="num_answers"
+                 aria-haspopup="true"
+                 role="tooltip"
+                 class="tooltip tooltip-validation tooltip-sm"
+                 [class.invalid]="form.get('num_answers').invalid
+                      && (form.get('num_answers').dirty ||
+                      form.get('num_answers').touched)">
+            <div class="select">
+              <select id="num_answers"
+                      name="num_answers"
+                      formControlName="num_answers">
+                <option value="Default">{{ 'modal.stars.add.placeholder.num_answers' | translate }}</option>
+                <option *ngFor="let num_answer of numAnswers" [value]="num_answer">{{num_answer}}</option>
+              </select>
+            </div>
+
+            <span class="tooltip-content">
+                    {{ 'modal.stars.add.validation_error.num_answers_required' | translate }}
+                </span>
+          </label>
+        </div>
+      </section>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn outline" (click)="close()">
+      {{ 'modal.general.button.close' | translate }}
+    </button>
+
+    <button class="btn btn-primary"
+            form="form"
+            type="submit"
+            [disabled]="form.invalid">
+      {{ 'modal.general.button.submit' | translate }}
+    </button>
+  </div>
+</clr-modal>
+

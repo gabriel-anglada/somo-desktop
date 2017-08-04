@@ -1,15 +1,9 @@
-.dashboard-container{
-  height: 100%;
-  .navbar{
-    position: fixed;
-    width: 100%;
-    min-width: 100%;
-  }
-  .main-container {
-    height: 100%;
-    padding-top: 54px;
-  }
-  .breadcrumb{
-    margin-bottom: 0 !important;
+dashboard {
+  .sidenav-content{
+    .nav-group {
+      label, ul {
+        padding-left: 15px;
+      }
+    }
   }
 }

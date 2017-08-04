@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AlertProvider} from "../../../providers/alert";
 
 @Component({
   selector: 'login',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['login.component.scss']
 })
 export class LoginComponent {
-
+  constructor(private alertProvider: AlertProvider) {}
 }

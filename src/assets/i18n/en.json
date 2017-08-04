@@ -1,13 +1,65 @@
 {
 	"alert": {
 		"success": {
-			"user_deleted_%userId%": ""
+			"user_added_%userId%": "",
+			"user_deleted_%userId%": "",
+			"user_updated_%userId%": ""
 		}
 	},
 	"modal": {
-		"button": {
-			"close": "",
-			"ok": ""
+		"general": {
+			"button": {
+				"close": "",
+				"submit": ""
+			}
+		},
+		"stars": {
+			"add": {
+				"label": {
+					"description": "",
+					"frequency": "",
+					"identifier": "",
+					"name": "",
+					"num_answers": "",
+					"num_peaks": ""
+				},
+				"placeholder": {
+					"frequency": "",
+					"identifier": "",
+					"num_answers": "",
+					"num_peaks": ""
+				},
+				"title": "",
+				"validation_error": {
+					"frequency_required": "",
+					"identifier_required": "",
+					"name_required": "",
+					"num_answers_required": "",
+					"num_peaks_required": ""
+				}
+			},
+			"edit": {
+				"title": ""
+			}
+		},
+		"users": {
+			"add": {
+				"label": {
+					"headquarter": "",
+					"identifier": ""
+				},
+				"placeholder": {
+					"headquarter": ""
+				},
+				"title": "",
+				"validation_error": {
+					"headquarter_required": "",
+					"identifier_required": ""
+				}
+			},
+			"edit": {
+				"title": ""
+			}
 		}
 	},
 	"page": {
@@ -15,13 +67,13 @@
 			"menu": {
 				"header": {
 					"application": "Application",
-					"help": "Contact and Help",
-					"my_data": "Me"
+					"help": "Contact and Help"
 				},
 				"label": {
 					"about": "About us",
 					"contact": "Contact us",
 					"dashboard": "Dashboard",
+					"logout": "",
 					"my_organization": "My Organization",
 					"my_profile": "My Profile",
 					"stars": "Stars",
@@ -30,28 +82,42 @@
 			}
 		},
 		"stars": {
+			"confirm": {
+				"delete": ""
+			},
 			"table": {
+				"footer": {
+					"stars_%num%": ""
+				},
 				"header": {
 					"actions": "",
-					"id": ""
+					"identifier": ""
 				}
 			},
 			"title": ""
 		},
 		"users": {
-			"delete": {
-				"confirm": {
-					"text": "",
-					"title": ""
-				}
+			"confirm": {
+				"delete": ""
 			},
 			"table": {
+				"footer": {
+					"users_%num%": ""
+				},
 				"header": {
 					"actions": "",
-					"id": ""
+					"identifier": ""
 				}
 			},
 			"title": ""
+		}
+	},
+	"star": {
+		"recursion": {
+			"monthly": "",
+			"quarterly": "",
+			"semiannual": "",
+			"weekly": ""
 		}
 	}
 }

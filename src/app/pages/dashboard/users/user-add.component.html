@@ -1,0 +1,66 @@
+<clr-modal [(clrModalOpen)]="opened" [clrModalClosable]="true">
+    <h3 class="modal-title">{{ 'modal.users.add.title' | translate }}</h3>
+
+    <div class="modal-body">
+      <form id="form" class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <section class="form-block">
+          <div class="form-group">
+            <label for="identifier">{{ 'modal.users.add.label.identifier' | translate }}</label>
+
+            <label for="identifier"
+                   aria-haspopup="true"
+                   role="tooltip"
+                   class="tooltip tooltip-validation tooltip-sm"
+                   [class.invalid]="form.get('identifier').invalid
+                    && (form.get('identifier').dirty || form.get('identifier').touched)">
+              <input id="identifier" type="text"
+                     formControlName="identifier">
+
+              <span class="tooltip-content">
+                {{ 'modal.users.add.validation_error.identifier_required' | translate }}
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="headquarters">{{ 'modal.users.add.label.headquarter' | translate }}</label>
+
+            <label for="headquarters"
+                   aria-haspopup="true"
+                   role="tooltip"
+                   class="tooltip tooltip-validation tooltip-sm"
+                   [class.invalid]="form.get('headquarters').invalid
+                      && (form.get('headquarters').dirty ||
+                      form.get('headquarters').touched)">
+              <div class="select">
+                <select id="headquarters"
+                        name="headquarters"
+                        formControlName="headquarters">
+                  <option value="Default">{{ 'modal.users.add.placeholder.headquarter' | translate }}</option>
+                  <option *ngFor="let headquarter of headquarters" [value]="headquarter.id">{{headquarter.name}}</option>
+                </select>
+              </div>
+
+              <span class="tooltip-content">
+                    {{ 'modal.users.add.validation_error.headquarter_required' | translate }}
+                </span>
+            </label>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn outline" (click)="close()">
+        {{ 'modal.general.button.close' | translate }}
+      </button>
+
+      <button class="btn btn-primary"
+              form="form"
+              type="submit"
+              [disabled]="form.invalid">
+        {{ 'modal.general.button.submit' | translate }}
+      </button>
+    </div>
+</clr-modal>
+

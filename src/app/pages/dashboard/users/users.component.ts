@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {UsersProvider} from "../../../providers/users";
 import {AlertProvider} from "../../../providers/alert";
-import {TranslatePipe} from "@ngx-translate/core";
+import {UserAddModalComponent} from "./user-add.component";
+import {UserEditModalComponent} from "./user-edit.component";
 
 @Component({
   selector: 'users',
@@ -9,7 +10,10 @@ import {TranslatePipe} from "@ngx-translate/core";
   styleUrls: ['users.component.scss']
 })
 export class UsersComponent {
-  private users;
+  private users = [];
+
+  @ViewChild('userAddModal') userAddModal:UserAddModalComponent;
+  @ViewChild('userEditModal') usereditModal:UserEditModalComponent;
 
   constructor(private usersProvider: UsersProvider,
               private alertProvider: AlertProvider) {}
@@ -21,22 +25,24 @@ export class UsersComponent {
   }
 
   onAddUser(){
+    this.userAddModal.initUser();
+    this.userAddModal.open();
+  }
 
+  onEditUser(user){
+    this.usereditModal.setUser(user);
+    this.usereditModal.open();
   }
 
   onViewStars(){
 
   }
 
-  onEdit(){
-
-  }
-
-  delete(user){
-    this.usersProvider.deleteUser(user.id).then(() => {
+  onDeleteUser(user){
+    this.usersProvider.deleteUser(user.identifier).then(() => {
       this.alertProvider.showAlert({
         message: 'alert.success.user_deleted_%userId%',
-        messageParams: {userId:user.id},
+        messageParams: {userId:user.identifier},
         type: 'success'
       });
     })

@@ -1,20 +1,41 @@
-<nav class="row navbar navbar-toggleable-md navbar-light">
-  <ol class="breadcrumb margin-rm">
-    <li class="breadcrumb-item active">{{ 'page.stars.title' | translate }}</li>
-  </ol>
-</nav>
+<header class="header-transparent">
+  <div class="branding">
+    <span class="title">{{ 'page.stars.title' | translate }}</span>
+  </div>
 
-<table class="table table-hover table-striped table-bordered">
-  <thead>
-  <tr>
-    <th># {{ 'page.stars.table.header.id' | translate }}</th>
-    <th>{{ 'page.stars.table.header.actions' | translate }}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let star of stars;">
-    <th scope="row">{{ star.id }}</th>
-    <td>acciones</td>
-  </tr>
-  </tbody>
-</table>
+  <div class="header-actions">
+    <a class="nav-link nav-icon" (click)="onAddStar()">
+      <clr-icon shape="add"></clr-icon>
+    </a>
+  </div>
+</header>
+
+<clr-datagrid>
+  <clr-dg-column>{{ 'page.stars.table.header.identifier' | translate }}</clr-dg-column>
+  <clr-dg-column>{{ 'page.stars.table.header.actions' | translate }}</clr-dg-column>
+
+  <clr-dg-row *ngFor="let star of stars">
+    <clr-dg-cell>{{star.identifier}}</clr-dg-cell>
+    <clr-dg-cell>
+      <a  (click)="onEditStar(star)">
+        <clr-icon shape="pencil" size="24"></clr-icon>
+      </a>
+      <clr-dropdown [clrMenuPosition]="'bottom-right'" [clrCloseMenuOnItemClick]="true">
+        <a clrDropdownToggle>
+          <clr-icon shape="trash" class="is-error" size="24"></clr-icon>
+        </a>
+        <clr-dropdown-menu>
+          <button type="button" clrDropdownItem (click)="onDeleteStar(star)">
+            <clr-icon shape="trash" size="14"></clr-icon>
+            {{ 'page.stars.confirm.delete' | translate }}
+          </button>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{ 'page.stars.table.footer.stars_%num%' | translate:{num:stars.length || 0} }}</clr-dg-footer>
+</clr-datagrid>
+
+<star-add-modal #starAddModal></star-add-modal>
+<star-edit-modal #starEditModal></star-edit-modal>

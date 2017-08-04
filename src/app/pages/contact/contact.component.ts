@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalComponent} from "../../components/modal.component";
 
 @Component({
-  selector: 'contact',
+  selector: 'contact-modal',
   templateUrl: 'contact.component.html',
   styleUrls: ['contact.component.scss']
 })
-export class ContactComponent {
-  constructor(public activeModal: NgbActiveModal) {}
+export class ContactComponent extends ModalComponent{
+  constructor() {
+    super();
+  }
 }

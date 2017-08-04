@@ -1,34 +1,44 @@
-<nav class="row navbar navbar-toggleable-md navbar-light">
-  <ol class="breadcrumb margin-rm">
-    <li class="breadcrumb-item active">{{ 'page.users.title' | translate }}</li>
-  </ol>
+<header class="header-transparent">
+  <div class="branding">
+      <span class="title">{{ 'page.users.title' | translate }}</span>
+  </div>
 
-  <a (click)="onAddUser()">
-    <i class="fa fa-plus" aria-hidden="true"></i>
-  </a>
-</nav>
+  <div class="header-actions">
+    <a class="nav-link nav-icon" (click)="onAddUser()">
+      <clr-icon shape="add"></clr-icon>
+    </a>
+  </div>
+</header>
 
-<table class="table table-hover table-striped table-bordered">
-  <thead>
-  <tr>
-    <th># {{ 'page.users.table.header.id' | translate }}</th>
-    <th>{{ 'page.users.table.header.actions' | translate }}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users;">
-    <th scope="row">{{ user.id }}</th>
-    <td>
-      <a (click)="onViewStars()">
-        <i class="fa fa-star" aria-hidden="true"></i>
+<clr-datagrid>
+  <clr-dg-column>{{ 'page.users.table.header.identifier' | translate }}</clr-dg-column>
+  <clr-dg-column>{{ 'page.users.table.header.actions' | translate }}</clr-dg-column>
+
+  <clr-dg-row *ngFor="let user of users">
+    <clr-dg-cell>{{user.identifier}}</clr-dg-cell>
+    <clr-dg-cell>
+      <a  (click)="onViewStars()">
+        <clr-icon shape="star" size="24"></clr-icon>
       </a>
-      <a (click)="onEdit()">
-        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <a  (click)="onEditUser(user)">
+        <clr-icon shape="pencil" size="24"></clr-icon>
       </a>
-      <a confirm title="{{ 'page.users.delete.confirm.title' | translate }}" text="{{ 'page.users.delete.confirm.text' | translate }}"  (onConfirm)="delete(user)">
-        <i class="fa fa-trash" aria-hidden="true"></i>
-      </a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+      <clr-dropdown [clrMenuPosition]="'bottom-right'" [clrCloseMenuOnItemClick]="true">
+        <a clrDropdownToggle>
+          <clr-icon shape="trash" class="is-error" size="24"></clr-icon>
+        </a>
+        <clr-dropdown-menu>
+          <button type="button" clrDropdownItem (click)="onDeleteUser(user)">
+            <clr-icon shape="trash" size="14"></clr-icon>
+            {{ 'page.users.confirm.delete' | translate }}
+          </button>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{ 'page.users.table.footer.users_%num%' | translate:{num:users.length || 0} }}</clr-dg-footer>
+</clr-datagrid>
+
+<user-add-modal #userAddModal></user-add-modal>
+<user-edit-modal #userEditModal></user-edit-modal>

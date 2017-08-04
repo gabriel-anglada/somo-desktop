@@ -1,11 +1,38 @@
+/* MARGIN */
 .margin-rm {
     margin: 0 !important;
+}
+.margin-top-rm {
+    margin-top: 0!important;
 }
 
 .margin-top-add {
     margin-top: 15px !important;
 }
 
+/* PADDING */
 .padding-add {
     padding: 15px !important;
+}
+.padding-top-rm {
+    padding-top: 0 !important;
+}
+
+/* HEADER */
+header.header-transparent {
+    background-color: transparent !important;
+}
+header .branding .title,
+header .header-actions a {
+    color: #000000 !important;
+}
+
+/* DATAGRID */
+clr-datagrid .datagrid{
+    margin-top: 0 !important;
+}
+
+/* SIDENAV */
+.sidenav .nav-group .nav-list, .sidenav .nav-group label {
+    padding: 0 0 0 24px !important;
 }

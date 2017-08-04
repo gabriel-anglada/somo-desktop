@@ -1,8 +1,14 @@
 <!--
 @TODO move this to a directive
 -->
-<p *ngFor="let alert of alerts" class="alert-container padding-add">
-  <ngb-alert [type]="alert.type" [dismissible]="false">{{ alert.message | translate:alert.messageParams }}</ngb-alert>
-</p>
+<div class="alert-container padding-add">
+  <clr-alert [clrAlertClosable]="false" [clrAlertType]="alert.type" *ngFor="let alert of alerts">
+    <div class="alert-item">
+        <span class="alert-text">
+            {{ alert.message | translate:alert.messageParams }}
+        </span>
+    </div>
+  </clr-alert>
+</div>
 
 <router-outlet></router-outlet>

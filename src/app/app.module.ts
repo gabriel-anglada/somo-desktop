@@ -5,12 +5,11 @@ import {AppComponent} from './app.component';
 import {AngularFireModule} from "angularfire2";
 import {environment} from "../environments/environment";
 import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./pages/onboarding/login/login.component";
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {HomeComponent} from "./pages/dashboard/home/home.component";
 import {AuthProvider} from "./providers/auth";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {UsersComponent} from "./pages/dashboard/users/users.component";
 import {StarsComponent} from "./pages/dashboard/stars/stars.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
@@ -21,9 +20,14 @@ import {AppTranslationModule} from "./app-translation.module";
 import {HttpModule} from "@angular/http";
 import {UsersProvider} from "./providers/users";
 import {StarsProvider} from "./providers/stars";
-import {ConfirmDirective} from "./directives/confirm.directive";
-import {ConfirmComponent} from "./directives/confirm.component";
 import {AlertProvider} from "./providers/alert";
+import {ClarityModule} from "clarity-angular";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {UserAddModalComponent} from "./pages/dashboard/users/user-add.component";
+import {OrganizationsProvider} from "./providers/organizations";
+import {UserEditModalComponent} from "./pages/dashboard/users/user-edit.component";
+import {StarAddModalComponent} from "./pages/dashboard/stars/star-add.component";
+import {StarEditModalComponent} from "./pages/dashboard/stars/star-edit.component";
 
 @NgModule({
     declarations: [
@@ -40,23 +44,30 @@ import {AlertProvider} from "./providers/alert";
         OrganizationComponent,
         AboutComponent,
         ContactComponent,
+        LoginComponent,
+        //Modals
+        UserAddModalComponent,
+        UserEditModalComponent,
+        StarAddModalComponent,
+        StarEditModalComponent
         //Directives
-        ConfirmDirective,
-        ConfirmComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         AppRoutingModule,
         AppTranslationModule,
         AngularFireModule.initializeApp(environment.firebase),
-        NgbModule.forRoot()
+        ClarityModule.forRoot(),
+        BrowserAnimationsModule
     ],
     providers: [
         AuthProvider,
         UsersProvider,
         StarsProvider,
+        OrganizationsProvider,
         AlertProvider,
     ],
     bootstrap: [
@@ -67,8 +78,7 @@ import {AlertProvider} from "./providers/alert";
          * TODO: Ideally move this entry components to a low level module
          */
         AboutComponent,
-        ContactComponent,
-        ConfirmComponent
+        ContactComponent
     ]
 })
 export class AppModule {
